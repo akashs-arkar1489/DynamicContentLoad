@@ -24,8 +24,8 @@
         const userList = document.querySelector('#userList');
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
-            if(xhr.readyState == XMLHttpRequest.DONE){ // checking if the request is done
-                if(xhr.status == 200){    // checking if got the response successfully
+            if(xhr.readyState === XMLHttpRequest.DONE){ // checking if the request is done
+                if(xhr.status === 200){    // checking if got the response successfully
                     const userData = JSON.parse(xhr.responseText);
                     userData.forEach((user) => {
                         const newUser = document.createElement('li'); // Create a <li> element
