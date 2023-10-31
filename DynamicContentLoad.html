@@ -24,19 +24,19 @@
         const userList = document.querySelector('#userList');
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
-            if(xhr.readyState == XMLHttpRequest.DONE){
-                if(xhr.status == 200){
+            if(xhr.readyState == XMLHttpRequest.DONE){ // checking if the request is done
+                if(xhr.status == 200){    // checking if got the response successfully
                     const userData = JSON.parse(xhr.responseText);
                     userData.forEach((user) => {
-                        const newUser = document.createElement('li');
+                        const newUser = document.createElement('li'); // Create a <li> element
                         const usernameSpan = document.createElement('span'); // Create a <span> element
-                        const newUserText = document.createTextNode(user.name);
-                        const newUsernameText = document.createTextNode(user.username);
+                        const newUserText = document.createTextNode(user.name);    // create user name
+                        const newUsernameText = document.createTextNode(user.username); // create user's username
 
                         usernameSpan.appendChild(newUsernameText); // Append the username text to the <span>
                         newUser.appendChild(usernameSpan); // Append the <span> to the <li>
-                        newUser.appendChild(newUserText);
-                        userList.appendChild(newUser);
+                        newUser.appendChild(newUserText); // Append the user name to the <li> after span
+                        userList.appendChild(newUser); // Append new user 
                     });
                 }else{
                     console.log('There is a problem with the request')
@@ -44,7 +44,7 @@
             }
         }
         // GET Request to get users from server
-        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users'); 
         xhr.send();
     </script>
     <!-- <script>
